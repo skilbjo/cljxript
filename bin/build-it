@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -eou pipefail
+
+build() {
+  lein cljsbuild once && \
+    mv target/cljxript.js app.js
+}
+
+run(){
+  node app.js
+}
+
+cleanup() {
+  rm -r target/
+}
+
+build && run

@@ -4,17 +4,14 @@
                  [environ "1.1.0"]]
   :plugins [[lein-cljsbuild "1.1.5"]]
   :uberjar-name "cljxript.jar"
-  :main core
+  :main cljxript.core
   :aot :all
   :cljsbuild {
     :builds [{
         ; The path to the top-level ClojureScript source directory:
-        ;:source-paths ["src-cljs"]
         :source-paths ["src"]
-        ; The standard ClojureScript compiler options:
-        ; (See the ClojureScript compiler documentation for details.)
         :compiler {
-          :output-to "target/cljsbuild-main.js"
-          ;:optimizations :whitespace
-          :optimizations :none
+          :output-to "target/cljxript.js"
+          :target :nodejs
+          :optimizations :simple
           :pretty-print true}}]})
